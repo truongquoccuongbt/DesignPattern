@@ -53,6 +53,7 @@ class BussinessWatch:
         self.name: str = name
         self.type: str = type
         self.sex: str = sex
+        self.dynamon: bool = True
 
     def to_string(self) -> str:
         return f'Name: {self.name} - type: {self.type} - sex: {self.sex}'
@@ -63,8 +64,7 @@ class Watch:
         self.name: str = name
         self.type: str = type
         self.sex: str = sex
-        self.dynamon: bool = True
-
+        
     def to_string(self) -> str:
         return f'Name: {self.name} - type: {self.type} - sex: {self.sex}'
 
@@ -135,7 +135,7 @@ def main():
 
         bussiness_product: BussinessProduct = BussinessProduct(name_type='bussiness')
         bussiness_product.add_mobile(mobile_bus)
-        bussiness_product.add_tablet(tablet_bus)
+        bussiness_product.add_tablet(watch_bus)
         bussiness_product.add_watch(tablet_bus)
         bussiness_product.print()
 
