@@ -84,7 +84,7 @@ class BussinessWatch(IWatch):
         return f'Name: {self.name} - type: {self.type} - sex: {self.sex}'
     
 
-class ISeasonProduct(ABC):
+class IProduct(ABC):
     def __init__(self, name_type:str = None) -> None:
         self.mobile = None
         self.watch  = None
@@ -121,7 +121,7 @@ class AbstractProductFactory(ABC):
         pass
 
     @abstractmethod
-    def create_product(self) -> ISeasonProduct:
+    def create_product(self) -> IProduct:
         pass
 
 
@@ -148,7 +148,7 @@ class BussinessProductFactory(AbstractProductFactory):
         return BussinessMobile()
 
 
-def create_event(factor: AbstractProductFactory) -> ISeasonProduct:
+def create_event(factor: AbstractProductFactory) -> IProduct:
     mobile = factor.create_mobile()
     watch = factor.create_watch()
     tablet =  factor.create_tablet()
@@ -168,7 +168,7 @@ def main():
     else:
         factory = BussinessProductFactory()
 
-    season_product:ISeasonProduct = create_event(factory)
+    season_product:IProduct = create_event(factory)
 
 if __name__ == "__main__":
     main()
